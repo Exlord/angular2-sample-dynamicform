@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="save(form.value, form.valid)" novalidate>
+<form [formGroup]="form" (ngSubmit)="save(form.value)" novalidate>
   <div class="form-group" [ngClass]="{'has-error':!form.get('name').valid && form.get('name').touched}">
     <label for="name">Name</label>
     <input type="text"

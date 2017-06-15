@@ -8,7 +8,8 @@ import {FieldService} from '../field.service';
 @Component({
   selector: 'app-field-form',
   templateUrl: './field-form.component.html',
-  styleUrls: ['./field-form.component.css']
+  styleUrls: ['./field-form.component.css'],
+  providers : [FormBuilder, FieldService]
 })
 
 export class FieldFormComponent implements OnInit,OnChanges {
