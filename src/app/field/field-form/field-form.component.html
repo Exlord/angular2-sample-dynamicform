@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="save(form.value, form.valid)" novalidate>
-  <div class="form-group" [ngClass]="{'has-error':!form.controls['name'].valid && form.controls['name'].touched}">
+  <div class="form-group" [ngClass]="{'has-error':!form.get('name').valid && form.get('name').touched}">
     <label for="name">Name</label>
     <input type="text"
            class="form-control"
@@ -7,21 +7,21 @@
            id="name"
            placeholder="Name"
            required
-           [formControl]="form.controls['name']">
+           [formControl]="form.get('name')">
     <p class="help-block text-danger"
-       [hidden]="form.controls['name'].valid || form.controls['name'].pristine || !submitted ">
+       [hidden]="form.get('name').valid || form.get('name').pristine || !submitted ">
       The name should be between 5 and 50 characters.
     </p>
   </div>
 
   <div class="form-group">
     <label for="type">Type</label>
-    <select class="form-control" id="type" name="type" [formControl]="form.controls['type']">
+    <select class="form-control" id="type" name="type" [formControl]="form.get('type')">
       <option *ngFor="let key of fieldTypes" [value]="FieldTypes[key]" [innerHtml]="key"></option>
     </select>
   </div>
 
-  <div class="form-group" [ngClass]="{'has-error':!form.controls['label'].valid && form.controls['label'].touched}">
+  <div class="form-group" [ngClass]="{'has-error':!form.get('label').valid && form.get('label').touched}">
     <label for="Name">Label</label>
     <input type="text"
            class="form-control"
@@ -29,21 +29,21 @@
            id="label"
            placeholder="Label"
            required
-           [formControl]="form.controls['label']">
+           [formControl]="form.get('label')">
     <p class="help-block text-danger"
-       [hidden]="form.controls['label'].valid || form.controls['label'].pristine || !submitted ">
+       [hidden]="form.get('label').valid || form.get('label').pristine || !submitted ">
       The label should be between 5 and 50 characters.
     </p>
   </div>
 
-  <div class="form-group" [ngClass]="{'has-error':!form.controls['help'].valid && form.controls['help'].touched}">
+  <div class="form-group" [ngClass]="{'has-error':!form.get('help').valid && form.get('help').touched}">
     <label for="Name">Help Text</label>
     <textarea
       class="form-control"
       name="help"
       id="help"
       placeholder="Help Text"
-      [formControl]="form.controls['help']"></textarea>
+      [formControl]="form.get('help')"></textarea>
   </div>
 
   <button type="submit" class="btn btn-default" [disabled]="!form.valid">
