@@ -19,7 +19,7 @@ export class FieldFormComponent implements OnInit,OnChanges {
   form: FormGroup;
   submitted: boolean = false;
   @Output() onSave = new EventEmitter();
-  @Input() field: Field;
+  @Input() public field: Field;
 
   constructor(private fieldService: FieldService, private  fb: FormBuilder) {
   }
